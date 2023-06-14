@@ -1,0 +1,52 @@
+﻿@{
+  ViewData["Title"] = "Bookmarks";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Your Learning Hub Bookmarks will be displayed here.</p>
+
+<div class="row">
+    <table class="arrowes-table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    User ID
+                </th>
+                 <th>
+                     Type ID
+                </th>
+                <th>
+                    Reference ID
+                </th>
+                <th>
+                    Child Count
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bookmark in ViewData["bookmarks"] as IList<BookmarkModel>)
+            {
+                <tr>
+                    <td>
+                        @bookmark.Title
+                    </td>
+                    <td>
+                        @bookmark.UserId
+                    </td>
+                    <td>
+                        @bookmark.ResourceTypeId
+                    </td>
+                    <td>
+                        @bookmark.ResourceReferenceId
+                    </td>
+                    <td>
+                        @bookmark.ChildrenCount
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
