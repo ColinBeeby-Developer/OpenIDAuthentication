@@ -1,0 +1,22 @@
+﻿@{
+  ViewData["Title"] = "Login";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>You can login here.</p>
+
+<form method="post">
+    <label>
+        Username
+        <input type="text" name="username" />
+    </label>
+    <label>
+        Password
+        <input type="password" name="password" />
+    </label>
+    <input type="submit" />
+</form>
+
+<br />
+<br />
+<a asp-controller="Authentication" asp-action="Login">Login Using OIDC</a>

@@ -37,7 +37,7 @@ namespace OpenIDAuthentication.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes=OpenIdConnectDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Bookmarks()
         {
           var accessToken = await HttpContext
@@ -58,6 +58,12 @@ namespace OpenIDAuthentication.Controllers
 
             ViewData["bookmarks"] = bookmarks;
 
+            return View();
+        }
+
+        [Authorize(AuthenticationSchemes=CookieAuthenticationDefaults.AuthenticationScheme)]
+        public IActionResult LocalStuff()
+        {
             return View();
         }
 
